@@ -1,13 +1,13 @@
 <?php
 /* =====================================================================
-   Only HVAC Pros — single-page site
+   Only HVAC LLC — single-page site
    ---------------------------------------------------------------------
    EDIT YOUR BUSINESS DETAILS HERE. Everything below this block pulls
    from these variables, so you only change them in one place.
    ===================================================================== */
 $BIZ = [
   'legal_name'  => 'Only HVAC LLC',
-  'brand'       => 'Only HVAC Pros',
+  'brand'       => 'Only HVAC LLC',
   'tagline'     => 'The only HVAC pros you’ll ever need.',
   'owner'       => 'Anthony Akana',
   // Phone intentionally left blank to avoid spam/robocalls. To show a
@@ -57,7 +57,7 @@ $GALLERY = [
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><?= $BIZ['brand'] ?> | HVAC Services in San Antonio, TX</title>
-  <meta name="description" content="Only HVAC Pros provides expert air conditioning, heating, and commercial HVAC services across San Antonio, TX. State-licensed mechanical contractor — repairs, installation, and maintenance done right.">
+  <meta name="description" content="Only HVAC LLC provides expert air conditioning, heating, and commercial HVAC services across San Antonio, TX. State-licensed mechanical contractor — repairs, installation, and maintenance done right.">
   <meta name="theme-color" content="#00aff0">
   <link rel="canonical" href="https://onlyhvacpros.com/">
 
@@ -71,7 +71,7 @@ $GALLERY = [
   <link rel="manifest" href="favicons/site.webmanifest">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Only HVAC Pros | San Antonio HVAC Services">
+  <meta property="og:title" content="Only HVAC LLC | San Antonio HVAC Services">
   <meta property="og:description" content="Air conditioning, heating & commercial HVAC done right in San Antonio. State-licensed mechanical contractor.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="logos/OnlyHVACProsIcon.png">
@@ -136,7 +136,7 @@ $GALLERY = [
 
 <!-- ============================= HERO ============================= -->
 <section class="hero">
-  <img class="hero__bg" src="images/thumbs/hero.jpg" alt="Commercial rooftop HVAC equipment installed by Only HVAC Pros">
+  <img class="hero__bg" src="images/thumbs/hero.jpg" alt="Commercial rooftop HVAC equipment installed by Only HVAC LLC">
   <div class="container">
     <div class="hero__inner">
       <p class="hero__tagline"><?= $BIZ['tagline'] ?></p>
@@ -218,7 +218,7 @@ $GALLERY = [
 <section class="section section--tint" id="why">
   <div class="container split">
     <div class="split__text">
-      <span class="eyebrow">Why Only HVAC Pros</span>
+      <span class="eyebrow">Why Only HVAC LLC</span>
       <h2>Comfort You Can Count On — Without the Runaround</h2>
       <p>We’re a locally owned, state-licensed mechanical contractor that treats every job like it’s in our own
         home. No upselling, no surprise fees — just straight answers and quality work that lasts.</p>
@@ -246,7 +246,7 @@ $GALLERY = [
       </ul>
     </div>
     <div class="split__media">
-      <img src="images/thumbs/20180809_192441.jpg" alt="Only HVAC Pros technician rigging a rooftop unit" loading="lazy">
+      <img src="images/thumbs/20180809_192441.jpg" alt="Only HVAC LLC technician rigging a rooftop unit" loading="lazy">
     </div>
   </div>
 </section>
@@ -284,12 +284,12 @@ $GALLERY = [
 <section class="section section--tint" id="about">
   <div class="container split">
     <div class="split__media">
-      <img src="images/thumbs/20180326_104615.jpg" alt="High-efficiency rooftop unit installed by Only HVAC Pros" loading="lazy">
+      <img src="images/thumbs/20180326_104615.jpg" alt="High-efficiency rooftop unit installed by Only HVAC LLC" loading="lazy">
     </div>
     <div class="split__text">
       <span class="eyebrow">About Us</span>
       <h2>San Antonio’s Friendly Neighborhood HVAC Crew</h2>
-      <p>Only HVAC Pros was founded by <strong><?= $BIZ['owner'] ?></strong> on a simple idea: San Antonio
+      <p>Only HVAC LLC was founded by <strong><?= $BIZ['owner'] ?></strong> on a simple idea: San Antonio
         deserves heating and cooling service that’s honest, skilled, and genuinely easy to work with.</p>
       <p>As a Texas State Mechanical Contractor, we bring the licensing and expertise of a big company with the
         care and accountability of a local, owner-operated business. We take pride in clean installs, tidy job
@@ -306,28 +306,16 @@ $GALLERY = [
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">Kind Words</span>
-      <h2>Neighbors Who Stay Cool With Us</h2>
-      <p class="lead">A few words from folks around San Antonio.
-        <!-- TODO: replace these sample testimonials with real customer reviews. --></p>
+      <h2>What Our Customers Say</h2>
+      <p class="lead">Don’t just take our word for it.</p>
     </div>
-    <div class="reviews">
+    <!-- Single real review for now; more to be added as they come in. -->
+    <div class="reviews reviews--single">
       <article class="review">
         <div class="review__stars">★★★★★</div>
-        <p class="review__text">“Our AC died on the hottest day of the year and they had us cool again the same afternoon. Professional, friendly, and the price was exactly what they quoted.”</p>
-        <div class="review__name">Marisol G.</div>
-        <div class="review__loc">Northwest San Antonio</div>
-      </article>
-      <article class="review">
-        <div class="review__stars">★★★★★</div>
-        <p class="review__text">“They replaced two rooftop units at our shop without shutting us down for a single day. Clean work and a crew that clearly knows what they’re doing.”</p>
-        <div class="review__name">Derrick W.</div>
+        <p class="review__text">“Anthony is the best. He completely replaced our entire HVAC system for a competitive price and even assembled a team to fix our master shower plumbing issues. He’s our go-to professional for home repairs.”</p>
+        <div class="review__name">Jeremiah B.</div>
         <div class="review__loc">Leon Valley, TX</div>
-      </article>
-      <article class="review">
-        <div class="review__stars">★★★★★</div>
-        <p class="review__text">“Finally an HVAC company that explains things in plain English and doesn’t try to upsell you. New system runs great and our power bill dropped.”</p>
-        <div class="review__name">Angela R.</div>
-        <div class="review__loc">Helotes, TX</div>
       </article>
     </div>
   </div>
@@ -489,7 +477,7 @@ $GALLERY = [
     </div>
     <div class="footer-bottom">
       <span>© <?= $BIZ['year'] ?> <?= $BIZ['legal_name'] ?>. All rights reserved.</span>
-      <span><?= $BIZ['legal_name'] ?> doing business as <?= $BIZ['brand'] ?>.</span>
+      <span>Serving the greater San Antonio area.</span>
     </div>
   </div>
 </footer>

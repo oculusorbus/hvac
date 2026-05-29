@@ -1,6 +1,6 @@
 <?php
 /* =====================================================================
-   Only HVAC Pros — service request form handler
+   Only HVAC LLC — service request form handler
    ---------------------------------------------------------------------
    Receives the contact form, validates it, and emails the lead to the
    business. On success it redirects back to the homepage with ?sent=1
@@ -18,7 +18,7 @@
 //   php -r "echo base64_encode('new@email.com');"
 $TO_EMAIL   = base64_decode('dG9ueWFrYW5hMzNAZ21haWwuY29t'); // where leads are delivered
 $FROM_EMAIL = 'no-reply@onlyhvacpros.com';      // must be a domain you control
-$SITE_NAME  = 'Only HVAC Pros';
+$SITE_NAME  = 'Only HVAC LLC';
 
 // Cloudflare Turnstile (leave blank until you set it up).
 // When you add your secret key here, verification turns on automatically.

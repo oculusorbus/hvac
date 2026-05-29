@@ -1,5 +1,5 @@
 /* =====================================================================
-   Only HVAC Pros — front-end behavior
+   Only HVAC LLC — front-end behavior
    Mobile nav · gallery filtering · lightbox
    ===================================================================== */
 (function () {
