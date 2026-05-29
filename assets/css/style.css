@@ -103,6 +103,8 @@ p { margin: 0 0 1rem; }
   display: none; background: none; border: 0; cursor: pointer; padding: 8px;
 }
 .nav__toggle span { display: block; width: 26px; height: 3px; background: var(--ink); border-radius: 3px; margin: 5px 0; transition: .25s; }
+/* the in-menu "Request Service" button only exists on mobile */
+.nav__cta-mobile { display: none; }
 
 /* =====================================================================
    Hero
@@ -312,6 +314,10 @@ p { margin: 0 0 1rem; }
   .nav__links a { display: block; padding: 14px 0; }
   .nav__phone { display: none; }
   .nav__toggle { display: block; }
+  /* drop the cramped top-bar CTA; show a full-width one inside the menu */
+  .nav__cta-desktop { display: none; }
+  .nav__cta-mobile { display: block; padding: 14px 22px 8px; }
+  .nav__cta-mobile a { display: flex; justify-content: center; padding: 14px 0; }
   .trust__grid { grid-template-columns: repeat(2,1fr); gap: 20px; }
   .cards, .reviews, .gallery { grid-template-columns: 1fr; }
   .gallery { grid-template-columns: repeat(2,1fr); }

@@ -121,10 +121,12 @@ $GALLERY = [
       <li><a href="#about">About</a></li>
       <li><a href="#area">Service Area</a></li>
       <li><a href="#contact">Contact</a></li>
+      <!-- shown only inside the mobile dropdown; hidden on desktop -->
+      <li class="nav__cta-mobile"><a class="btn btn-primary btn-block" href="#contact">Request Service</a></li>
     </ul>
     <div class="nav__cta">
       <?php if ($HAS_PHONE): ?><a class="nav__phone" href="tel:<?= $BIZ['phone_href'] ?>"><?= $BIZ['phone'] ?></a><?php endif; ?>
-      <a class="btn btn-primary" href="#contact">Request Service</a>
+      <a class="btn btn-primary nav__cta-desktop" href="#contact">Request Service</a>
       <button class="nav__toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
