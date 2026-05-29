@@ -10,8 +10,11 @@ $BIZ = [
   'brand'       => 'Only HVAC Pros',
   'tagline'     => 'The only HVAC pros you’ll ever need.',
   'owner'       => 'Anthony Akana',
-  'phone'       => '(210) 555-0142',          // TODO: replace with real phone
-  'phone_href'  => '+12105550142',            // TODO: replace with real phone (digits only)
+  // Phone intentionally left blank to avoid spam/robocalls. To show a
+  // click-to-call number, fill both fields below (display + tel: link)
+  // and the phone UI will reappear automatically across the site.
+  'phone'       => '',
+  'phone_href'  => '',
   'email'       => 'tonyakana33@gmail.com',
   'address'     => '9111 Wild Trails St',
   'city_state'  => 'San Antonio, TX 78250',
@@ -19,12 +22,15 @@ $BIZ = [
   'year'        => date('Y'),
 ];
 
+// Whether to show click-to-call phone UI anywhere on the site.
+$HAS_PHONE = $BIZ['phone'] !== '' && $BIZ['phone_href'] !== '';
+
 // Flash message after a form submission (set by send-request.php redirect)
 $flash = '';
 if (isset($_GET['sent']) && $_GET['sent'] === '1') {
   $flash = ['type' => 'ok', 'msg' => 'Thanks! Your request is on its way to our team. We’ll reach out shortly to get you scheduled.'];
 } elseif (isset($_GET['error'])) {
-  $flash = ['type' => 'err', 'msg' => 'Sorry — something went wrong sending your request. Please call us at ' . $BIZ['phone'] . ' or email ' . $BIZ['email'] . '.'];
+  $flash = ['type' => 'err', 'msg' => 'Sorry — something went wrong sending your request. Please email us at ' . $BIZ['email'] . ' and we’ll get right back to you.'];
 }
 
 // Curated gallery: file (in /images), thumb (in /images/thumbs), category, caption
@@ -83,8 +89,8 @@ $GALLERY = [
     "name": "<?= $BIZ['brand'] ?>",
     "legalName": "<?= $BIZ['legal_name'] ?>",
     "image": "https://onlyhvacpros.com/logos/OnlyHVACProsIcon.png",
-    "telephone": "<?= $BIZ['phone'] ?>",
-    "email": "<?= $BIZ['email'] ?>",
+<?php if ($HAS_PHONE): ?>    "telephone": "<?= $BIZ['phone'] ?>",
+<?php endif; ?>    "email": "<?= $BIZ['email'] ?>",
     "url": "https://onlyhvacpros.com/",
     "address": {
       "@type": "PostalAddress",
@@ -116,7 +122,7 @@ $GALLERY = [
       <li><a href="#contact">Contact</a></li>
     </ul>
     <div class="nav__cta">
-      <a class="nav__phone" href="tel:<?= $BIZ['phone_href'] ?>"><?= $BIZ['phone'] ?></a>
+      <?php if ($HAS_PHONE): ?><a class="nav__phone" href="tel:<?= $BIZ['phone_href'] ?>"><?= $BIZ['phone'] ?></a><?php endif; ?>
       <a class="btn btn-primary" href="#contact">Request Service</a>
       <button class="nav__toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -138,7 +144,11 @@ $GALLERY = [
         technicians keep your home or business comfortable all year long — done right the first time.</p>
       <div class="hero__actions">
         <a class="btn btn-primary" href="#contact">Request Service</a>
-        <a class="btn btn-ghost" href="tel:<?= $BIZ['phone_href'] ?>">Call <?= $BIZ['phone'] ?></a>
+        <?php if ($HAS_PHONE): ?>
+          <a class="btn btn-ghost" href="tel:<?= $BIZ['phone_href'] ?>">Call <?= $BIZ['phone'] ?></a>
+        <?php else: ?>
+          <a class="btn btn-ghost" href="#contact">Get a Free Estimate</a>
+        <?php endif; ?>
       </div>
       <div class="hero__badges">
         <span class="hero__badge"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7fe3ff" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg> State-licensed &amp; insured</span>
@@ -356,10 +366,12 @@ $GALLERY = [
           <div class="alert alert--<?= $flash['type'] ?>"><?= $flash['msg'] ?></div>
         <?php endif; ?>
 
+        <?php if ($HAS_PHONE): ?>
         <div class="info-row">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>
           <div><strong>Call or text</strong><br><a href="tel:<?= $BIZ['phone_href'] ?>"><?= $BIZ['phone'] ?></a></div>
         </div>
+        <?php endif; ?>
         <div class="info-row">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
           <div><strong>Email</strong><br><a href="mailto:<?= $BIZ['email'] ?>"><?= $BIZ['email'] ?></a></div>
@@ -467,7 +479,7 @@ $GALLERY = [
       <div>
         <h4>Contact</h4>
         <ul class="footer-links">
-          <li><a href="tel:<?= $BIZ['phone_href'] ?>"><?= $BIZ['phone'] ?></a></li>
+          <?php if ($HAS_PHONE): ?><li><a href="tel:<?= $BIZ['phone_href'] ?>"><?= $BIZ['phone'] ?></a></li><?php endif; ?>
           <li><a href="mailto:<?= $BIZ['email'] ?>"><?= $BIZ['email'] ?></a></li>
           <li><?= $BIZ['address'] ?></li>
           <li><?= $BIZ['city_state'] ?></li>
