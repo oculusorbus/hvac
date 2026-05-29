@@ -5,21 +5,6 @@
 (function () {
   'use strict';
 
-  /* ---------- email de-obfuscation ----------
-     The address is shipped base64-encoded in a data-email attribute so it
-     never appears in the HTML as plaintext. We decode it at runtime and
-     wire up the mailto: link, defeating most email-harvesting scrapers. */
-  Array.prototype.forEach.call(document.querySelectorAll('a.email-link'), function (a) {
-    var enc = a.getAttribute('data-email');
-    if (!enc) return;
-    try {
-      var addr = atob(enc);
-      a.href = 'mailto:' + addr;
-      a.textContent = addr;
-      a.removeAttribute('data-email');
-    } catch (e) { /* leave the placeholder label in place */ }
-  });
-
   /* ---------- mobile nav ---------- */
   var toggle = document.getElementById('navToggle');
   var links  = document.getElementById('navLinks');

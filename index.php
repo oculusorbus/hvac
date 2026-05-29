@@ -15,11 +15,9 @@ $BIZ = [
   // and the phone UI will reappear automatically across the site.
   'phone'       => '',
   'phone_href'  => '',
-  // Contact email, base64-encoded so it never sits in plaintext in the
-  // source or the served HTML (anti-harvesting). It is assembled into a
-  // mailto: link client-side by assets/js/main.js. To change it, run:
-  //   php -r "echo base64_encode('new@email.com');"
-  'email_b64'   => 'dG9ueWFrYW5hMzNAZ21haWwuY29t',
+  // NOTE: the contact email is intentionally NOT stored or displayed here.
+  // It lives only in send-request.php (base64-encoded) as the form's
+  // delivery address, so it is never shown on the site or harvestable.
   'address'     => '9111 Wild Trails St',
   'city_state'  => 'San Antonio, TX 78250',
   'license'     => 'TX State Mechanical Contractor · TACL #000000', // TODO: add license #
@@ -28,14 +26,6 @@ $BIZ = [
 
 // Whether to show click-to-call phone UI anywhere on the site.
 $HAS_PHONE = $BIZ['phone'] !== '' && $BIZ['phone_href'] !== '';
-
-// Emits a placeholder link that assets/js/main.js turns into a real
-// mailto: with the decoded address. The plaintext email is never sent
-// to the browser, so harvesters scraping the HTML come up empty.
-function email_link($b64, $label = 'Email us') {
-  return '<a class="email-link" href="#" data-email="' . htmlspecialchars($b64) . '">'
-       . htmlspecialchars($label) . '</a>';
-}
 
 // Flash message after a form submission (set by send-request.php redirect)
 $flash = '';
@@ -385,7 +375,7 @@ $GALLERY = [
         <?php endif; ?>
         <div class="info-row">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
-          <div><strong>Email</strong><br><?= email_link($BIZ['email_b64'], 'Email us') ?></div>
+          <div><strong>Email</strong><br>Use the request form and we’ll reply to you by email.</div>
         </div>
         <div class="info-row">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -491,7 +481,7 @@ $GALLERY = [
         <h4>Contact</h4>
         <ul class="footer-links">
           <?php if ($HAS_PHONE): ?><li><a href="tel:<?= $BIZ['phone_href'] ?>"><?= $BIZ['phone'] ?></a></li><?php endif; ?>
-          <li><?= email_link($BIZ['email_b64'], 'Email us') ?></li>
+          <li><a href="#contact">Request service</a></li>
           <li><?= $BIZ['address'] ?></li>
           <li><?= $BIZ['city_state'] ?></li>
         </ul>
