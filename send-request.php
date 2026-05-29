@@ -13,7 +13,10 @@
    ===================================================================== */
 
 // ---- CONFIG ---------------------------------------------------------
-$TO_EMAIL   = 'tonyakana33@gmail.com';          // where leads are delivered
+// Lead destination, base64-encoded so the plaintext address isn't sitting
+// in the source. Decoded only here, at send time. To change it, run:
+//   php -r "echo base64_encode('new@email.com');"
+$TO_EMAIL   = base64_decode('dG9ueWFrYW5hMzNAZ21haWwuY29t'); // where leads are delivered
 $FROM_EMAIL = 'no-reply@onlyhvacpros.com';      // must be a domain you control
 $SITE_NAME  = 'Only HVAC Pros';
 
